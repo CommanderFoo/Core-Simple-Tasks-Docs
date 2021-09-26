@@ -1,0 +1,11 @@
+{
+  "files.exclude": {
+    "**/*.pbt": true
+  },
+  "Lua.diagnostics.globals": [
+    "init"
+  ],
+  "Lua.diagnostics.disable": [
+    "trailing-space"
+  ]
+}
