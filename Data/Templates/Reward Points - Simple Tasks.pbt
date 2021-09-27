@@ -18,6 +18,7 @@ Assets {
         ParentId: 4781671109827199097
         ChildIds: 2293009250810980076
         ChildIds: 2418082265736630649
+        ChildIds: 16126313753236796541
         ChildIds: 17744738790900755747
         ChildIds: 17346236667535292404
         ChildIds: 3574574152814921280
@@ -213,6 +214,37 @@ Assets {
         BindingSet {
           BindingSetAsset {
             Id: 16998103149610533372
+          }
+        }
+      }
+      Objects {
+        Id: 16126313753236796541
+        Name: "Default Bindings"
+        Transform {
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 2909145171243200949
+        UnregisteredParameters {
+        }
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        BindingSet {
+          BindingSetAsset {
+            Id: 736360303936294653
           }
         }
       }
