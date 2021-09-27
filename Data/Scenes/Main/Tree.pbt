@@ -88,7 +88,7 @@ Objects {
     }
   }
   ParentId: 4781671109827199097
-  ChildIds: 13738147030835169479
+  ChildIds: 10030695522993629871
   ChildIds: 7367735074338159388
   ChildIds: 16813558807825262224
   ChildIds: 14713340454944924967
@@ -931,13 +931,9 @@ Objects {
   }
 }
 Objects {
-  Id: 13738147030835169479
+  Id: 10030695522993629871
   Name: "Default Bindings"
   Transform {
-    Location {
-    }
-    Rotation {
-    }
     Scale {
       X: 1
       Y: 1
@@ -945,23 +941,24 @@ Objects {
     }
   }
   ParentId: 8833736232442907042
-  UnregisteredParameters {
-  }
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
   Visible_v2 {
     Value: "mc:evisibilitysetting:inheritfromparent"
   }
-  CameraCollidable {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  EditorIndicatorVisibility {
-    Value: "mc:eindicatorvisibility:visiblewhenselected"
-  }
-  BindingSet {
-    BindingSetAsset {
-      Id: 736360303936294653
+  TemplateInstance {
+    ParameterOverrideMap {
+      key: 8074276295946747788
+      value {
+        Overrides {
+          Name: "Name"
+          String: "Default Bindings"
+        }
+      }
+    }
+    TemplateAsset {
+      Id: 13886645187644756153
     }
   }
 }

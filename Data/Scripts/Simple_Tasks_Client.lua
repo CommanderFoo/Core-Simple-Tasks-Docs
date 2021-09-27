@@ -19,6 +19,8 @@ local notify_task = script:GetCustomProperty("notify_task"):WaitForObject()
 local notify_points = script:GetCustomProperty("notify_points"):WaitForObject()
 local notify_time = root:GetCustomProperty("notify_time")
 
+local sound = root:GetCustomProperty("sound"):WaitForObject()
+
 local is_open = false
 local tween = nil
 local in_tween = nil
@@ -124,6 +126,7 @@ function Tick(dt)
 			in_tween:on_start(function()
 				notify_task.text = current_item.name
 				notify_points.text = tostring(current_item.points) .. " Reward Points"
+				sound:Play()
 			end)
 
 			in_tween:on_complete(function()

@@ -18,6 +18,7 @@ Assets {
         ParentId: 4781671109827199097
         ChildIds: 2293009250810980076
         ChildIds: 2418082265736630649
+        ChildIds: 17744738790900755747
         ChildIds: 17346236667535292404
         ChildIds: 3574574152814921280
         ChildIds: 13288698874891837708
@@ -55,6 +56,12 @@ Assets {
             }
           }
           Overrides {
+            Name: "cs:sound"
+            ObjectReference {
+              SubObjectId: 14707949817269890064
+            }
+          }
+          Overrides {
             Name: "cs:odd_color:tooltip"
             String: "The color of the task row when it is odd."
           }
@@ -64,7 +71,7 @@ Assets {
           }
           Overrides {
             Name: "cs:odd_color:subcategory"
-            String: "Colors"
+            String: "Customize"
           }
           Overrides {
             Name: "cs:even_color:tooltip"
@@ -76,7 +83,7 @@ Assets {
           }
           Overrides {
             Name: "cs:even_color:subcategory"
-            String: "Colors"
+            String: "Customize"
           }
           Overrides {
             Name: "cs:key_string:tooltip"
@@ -113,6 +120,18 @@ Assets {
           Overrides {
             Name: "cs:show_notify:subcategory"
             String: "Settings"
+          }
+          Overrides {
+            Name: "cs:sound:tooltip"
+            String: "The sound that plays when the player completes a task. Will only play if notifications are turned on."
+          }
+          Overrides {
+            Name: "cs:sound:category"
+            String: "Simple_Tasks_Options"
+          }
+          Overrides {
+            Name: "cs:sound:subcategory"
+            String: "Customize"
           }
         }
         Collidable_v2 {
@@ -195,6 +214,73 @@ Assets {
           BindingSetAsset {
             Id: 16998103149610533372
           }
+        }
+      }
+      Objects {
+        Id: 17744738790900755747
+        Name: "Audio"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 2909145171243200949
+        ChildIds: 14707949817269890064
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:forceoff"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        NetworkContext {
+        }
+      }
+      Objects {
+        Id: 14707949817269890064
+        Name: "Collect Coin Celesta 01 SFX"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 17744738790900755747
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        AudioInstance {
+          AudioAsset {
+            Id: 4029739358424502273
+          }
+          Volume: 1
+          Falloff: -1
+          Radius: -1
         }
       }
       Objects {
@@ -15759,6 +15845,15 @@ Assets {
             Id: 6303313762670211462
           }
         }
+      }
+    }
+    Assets {
+      Id: 4029739358424502273
+      Name: "Collect Coin Celesta 01 SFX"
+      PlatformAssetType: 7
+      PrimaryAsset {
+        AssetType: "AudioAssetRef"
+        AssetId: "sfx_collect_coin_celesta_01_Cue_ref"
       }
     }
     Assets {
