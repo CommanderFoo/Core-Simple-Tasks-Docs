@@ -9,5 +9,6 @@
 | show_notify | If true, then notifications will be shown to the player. |
 | odd_color | The color of the odd row in the task list for a task entry. |
 | even_color | The color of the even row in the task list for a task entry. |
+| sound | The sound that plays when a notification is shown. |
 
 ![Screenshot](../images/2.png)
