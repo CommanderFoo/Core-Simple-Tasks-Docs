@@ -9,3 +9,5 @@ Game.playerJoinedEvent:Connect(function(player)
 	RPST.init(player, tasks, show_notify)
 	Default_Tasks.init(player)
 end)
+
+RPST.setup_events()

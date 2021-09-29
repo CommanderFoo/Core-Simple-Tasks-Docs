@@ -8,8 +8,7 @@ RPST.tweens = {}
 
 RPST.TASKS = {}
 
-RPST.DAY = 86400
-RPST.HALF_DAY = 43200
+RPST.DAY = 86400 - 3600
 RPST.YESTERDAY = os.time{ year = os.date("%Y"), month = os.date("%m"), day = os.date("%d") - 1, hour = 1 }
 RPST.TODAY = os.time{ year = os.date("%Y"), month = os.date("%m"), day = os.date("%d"), hour = 1 }
 RPST.TOMORROW = os.time{ year = os.date("%Y"), month = os.date("%m"), day = os.date("%d") + 1, hour = 1 }
@@ -73,12 +72,13 @@ function RPST.can_claim_daily(player, task_id)
 		data[task_id] = RPST.YESTERDAY
 	end
 
-	-- if(RPST.DEBUG) then
-	-- 	print("Last Claimed: ", os.date("%d-%m-%Y %H:%M:%S", data[task.key]))
-	-- 	print("Yesterday Was: ", os.date("%d-%m-%Y %H:%M:%S", RPST.YESTERDAY))
-	-- 	print("Today Is: ", os.date("%d-%m-%Y %H:%M:%S", RPST.TODAY))
-	-- 	print("Diff: ", RPST.TODAY - data[task.key])
-	-- end
+	if(RPST.DEBUG) then
+		print("Last Claimed: ", os.date("%d-%m-%Y %H:%M:%S", data[task_id]))
+		print("Yesterday Was: ", os.date("%d-%m-%Y %H:%M:%S", RPST.YESTERDAY))
+		print("Today Is: ", os.date("%d-%m-%Y %H:%M:%S", RPST.TODAY))
+		print("Diff: ", RPST.TODAY - data[task_id], task_id)
+		print("---------------------------------------")
+	end
 
 	if(RPST.TODAY - data[task_id] >= RPST.DAY) then
 		if(RPST.DEBUG) then
@@ -100,6 +100,8 @@ end
 
 function RPST.send_data(player)
 	local data = Storage.GetPlayerData(player)
+
+	--print("SERVER:", YOOTIL.JSON.encode(data))
 
 	if(data.rpst ~= nil) then
 		player:SetPrivateNetworkedData("rpst", data.rpst)
@@ -126,6 +128,8 @@ end
 
 function RPST.update_client(player, ui_task_list, task_panel_width)
 	local data = RPST.get_private_player_data(player)
+
+	--print("CLIENT:", YOOTIL.JSON.encode(data))
 
 	for k, v in pairs(RPST.TASKS) do
 		if(data[k] ~= nil and (RPST.TODAY - data[k]) < RPST.DAY) then
@@ -164,17 +168,13 @@ function RPST.init(player, tasks, show_notify)
 
 		if(Environment.IsServer()) then
 			RPST.show_notify = show_notify
-			RPST.setup_events()
-			RPST.send_data(player)
-
-			-- Game.playerLeftEvent:Connect(function(player)
-
-			-- 	-- @TODO: REMOVE
-			-- 	RPST.save(player, {})
-			-- end)
 		end
 
 		RPST.has_setup = true
+	end
+
+	if(Environment.IsServer()) then
+		RPST.send_data(player)
 	end
 end
 
